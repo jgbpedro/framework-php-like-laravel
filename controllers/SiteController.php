@@ -18,7 +18,7 @@ class SiteController
 	}
 
 	public function monitoria($request){
-		//print_r($request);
+		
 		$mes = $request['mes'];
 		$ano = $request['ano'];
 		$date = date_create_from_format("m/Y",$mes."/".$ano);
@@ -49,39 +49,6 @@ class SiteController
 			print_r(json_encode($msg));
 			return http_response_code(405);
 		}
-	}
-
-	public function aderencia(){
-		$data = file_get_contents(_HOSTNPORT_._BASEPATH_."/data/aderencia.json");
-		print_r($data);
-	}
-
-	public function monitoriaT(){
-		$data = file_get_contents(_HOSTNPORT_._BASEPATH_."/data/monitoria.json");		
-		print_r($data);
-	}
-
-	public function produtividade(){
-		$data = file_get_contents(_HOSTNPORT_._BASEPATH_."/data/produtividade.json");		
-		print_r($data);
-	}
-
-	public function qualidade(){
-		$data = file_get_contents(_HOSTNPORT_._BASEPATH_."/data/qualidade.json");		
-		print_r($data);
-	}
-
-	public function qualidadeItem($request){
-		$data = file_get_contents(_HOSTNPORT_._BASEPATH_."/data/qualidade_dia.json");
-		$data = json_decode($data);
-		
-		foreach($data as $key) {
-			//print_r($key);
-			if ($key->id == $request['id']) {
-				return print_r(json_encode($key));		
-			}
-		}
-		
 	}	
 	
 	public function index($params){
