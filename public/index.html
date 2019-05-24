@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax Request</title>
+
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$.ajax({
+				url: 'http://localhost/OOPAPI/produtos/1',
+				dataType: 'json',
+				cache: false,
+				method: 'PUT',
+				headers: {"X-HTTP-Method-Override": "PUT"},
+				data: { name: 'Guilherme', email: 'guilherme@mail.com' },
+				crossDomain: true,
+				success: function(response){
+					
+				}
+			});
+		});
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
